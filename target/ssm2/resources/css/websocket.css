@@ -1,0 +1,53 @@
+#center1{
+    height: 760px;
+    width: 100%;
+// background-color: #566473;
+}
+
+
+#right{
+    margin-top: -760px;
+    height: 760px;
+    width: 83.5%;
+    float: right;
+}
+
+#welcome{
+    margin-left: 420px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+#nowDiv{
+    margin-top: 30px;
+    font-size: 20px;
+}
+#nowDiv1{
+    float: right;
+    margin-top: 9px;
+    margin-right: 12px;
+    font-weight: 600;
+    font-size: 15px;
+}
+#nowDiv2{
+    float: right;
+    margin-right: 20px;
+    padding-top: 3px;
+    font-size: 13px;
+}
+#message{
+    overflow: auto;
+    margin: 10px auto 30px auto;
+    width: 90%;
+    height: 450px;
+    background-color: #AAADB3;
+}
+
+#bottom{
+    height: 70px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+
+}

@@ -1,0 +1,121 @@
+
+
+#foot{
+    height: 100px;
+    width: 100%;
+    background-color: navajowhite;
+
+}
+
+#foot1{
+    padding-left: 150px;
+    padding-top: 25px;
+
+}
+
+#foot2{
+    padding-left: 158px;
+    font-weight: bold;
+
+}
+#foot11{
+    font-size: 50px;
+    font-family: FZShuTi;
+    color: black;
+}
+#foot12{
+    float: right;
+    margin-right: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    color: black;
+}
+#foot13{
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+#foot12 #a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#left{
+    width:16%;
+    margin-top: 1px;
+    float: left;
+    font-size: 18px;
+}
+.left1{
+    height: 45px;
+    padding-top: 17px;
+    background-color: #20abee;
+    color: black;
+    font-weight: 900;
+}
+
+.left1 a{
+    margin-left: 10%;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+#left ul{
+    padding: 0;
+
+
+}
+.first{
+    padding-top: 15px;
+    font-family: STSong;
+    display: block;
+}
+
+
+#left ul li{
+    margin-top: 3px;
+    text-align: center;
+    list-style: none;
+}
+
+li >button{
+    width: 100%;
+    height: 30px;
+    border: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+
+li>button:hover{
+    background-color: grey;
+}
+
+
+.menu{
+    display: none;
+}
+.menu>li{
+    margin-left: 30px;
+}
+
+
+
+
+
+#center{
+    width: 0.2%;
+    height: 100%;
+    background-color: darkgray;
+    float: left;
+}
+
+#bottom{
+    height: 70px;
+    width: 100%;
+    margin-top: 30px;
+    background-color: white;
+    text-align: center;
+
+}

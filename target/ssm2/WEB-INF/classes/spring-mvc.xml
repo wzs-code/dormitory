@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 扫描controller（controller层注入） -->
+    <context:component-scan base-package="controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <context:component-scan base-package="model"/>
+    <context:component-scan base-package="websocket"/>
+    <context:component-scan base-package="Aop"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+
+    <!--    &lt;!&ndash; 内容协商管理器  &ndash;&gt;-->
+    <!--    &lt;!&ndash;1、首先检查路径扩展名（如my.pdf）；2、其次检查Parameter（如my?format=pdf）；3、检查Accept Header&ndash;&gt;-->
+    <!--    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">-->
+    <!--        &lt;!&ndash; 扩展名至mimeType的映射,即 /user.json => application/json &ndash;&gt;-->
+    <!--        <property name="favorPathExtension" value="true"/>-->
+    <!--        &lt;!&ndash; 用于开启 /userinfo/123?format=json 的支持 &ndash;&gt;-->
+    <!--        <property name="favorParameter" value="true"/>-->
+    <!--        <property name="parameterName" value="format"/>-->
+    <!--        &lt;!&ndash; 是否忽略Accept Header &ndash;&gt;-->
+    <!--        <property name="ignoreAcceptHeader" value="false"/>-->
+
+    <!--        <property name="mediaTypes"> &lt;!&ndash;扩展名到MIME的映射；favorPathExtension, favorParameter是true时起作用  &ndash;&gt;-->
+    <!--            <value>-->
+    <!--                json=application/json-->
+    <!--                xml=application/xml-->
+    <!--                html=text/html-->
+    <!--            </value>-->
+    <!--        </property>-->
+    <!--        &lt;!&ndash; 默认的content type &ndash;&gt;-->
+    <!--        <property name="defaultContentType" value="text/html"/>-->
+    <!--    </bean>-->
+
+
+    <!-- 当在web.xml 中   DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->
+    <mvc:default-servlet-handler />
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/images/**" location="/resources/images/"/>
+
+    <!--过滤静态资源-->
+    <mvc:resources mapping="/ueditor/**" location="/resources/ueditor/"/>
+
+
+    <!--    &lt;!&ndash; 对模型视图添加前后缀 &ndash;&gt;-->
+    <!--    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+    <!--          p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 最大内存大小 -->
+        <property name="maxInMemorySize" value="10240"/>
+        <!-- 最大文件大小，-1为不限制大小 -->
+        <property name="maxUploadSize" value="-1"/>
+    </bean>
+
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!-- 校验器-->
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+        <!-- 指定校验使用的资源文件，如果不指定则默认使用classpath下的ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+    <!-- 校验错误信息配置文件 -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!-- 资源文件名-->
+        <property name="basenames">
+            <list>
+                <value>classpath:/StudentMessages</value>
+            </list>
+        </property>
+        <!-- 资源文件编码格式 -->
+        <property name="fileEncodings" value="utf-8" />
+        <!-- 对资源文件内容缓存时间，单位秒 -->
+        <property name="cacheSeconds" value="120" />
+    </bean>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!--    &lt;!&ndash;自定义消息转换器的编码,解决后台传输json回前台时，中文乱码问题&ndash;&gt;-->
+    <!--    <mvc:annotation-driven >-->
+    <!--        <mvc:message-converters register-defaults="true">-->
+    <!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter" >-->
+    <!--                <property name = "supportedMediaTypes">-->
+    <!--                    <list>-->
+    <!--                        <value>application/json;charset=utf-8</value>-->
+    <!--                        <value>text/html;charset=utf-8</value>-->
+    <!--                        &lt;!&ndash; application 可以在任意 form 表单里面 enctype 属性默认找到 &ndash;&gt;-->
+    <!--                        <value>application/x-www-form-urlencoded</value>-->
+    <!--                    </list>-->
+    <!--                </property>-->
+    <!--            </bean>-->
+    <!--            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" ></bean>-->
+    <!--        </mvc:message-converters>-->
+    <mvc:annotation-driven/>
+    <mvc:annotation-driven >
+        <!-- 消息转换器 -->
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <mvc:default-servlet-handler/>
+
+</beans>

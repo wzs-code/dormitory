@@ -1,0 +1,176 @@
+#foot{
+    height: 80px;
+    width: 100%;
+    background-color: #008fbd;
+
+}
+
+#foot1{
+    padding-left: 30px;
+    padding-top: 20px;
+
+}
+
+#foot2{
+    padding-left: 158px;
+    font-weight: bold;
+
+}
+#foot11{
+    font-size: 32px;
+    font-family: FZShuTi;
+    color: #f9fffd;
+}
+#foot12{
+    float: right;
+    margin-right: 40px;
+    color: #d6dee3;
+}
+
+#icon{
+   margin-left: 20px;
+    margin-right: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+#user{
+    margin-left: 550px;
+    margin-right: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+#user a{
+    text-decoration: none;
+    color: white;
+}
+
+#update{
+    margin-left: 580px;
+    padding-left: 20px;
+    color: white;
+    font-size: 15px;
+}
+#update a{
+    text-decoration: none;
+    color: white;
+}
+
+
+#exit{
+    padding-left: 30px;
+    color: white;
+    font-size: 15px;
+}
+#exit a{
+    text-decoration: none;
+    color: white;
+}
+
+#foot13{
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: white;
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+    min-width: 60px;
+
+}
+.dropdown-content a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    padding-top: 10px;
+    margin-left: -10px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.admin_black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height:1000px;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.90;
+    filter: alpha(opacity=88);
+}
+
+.admin_white_content {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 34%;
+    width: 350px;
+    height:360px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    z-index:1002;
+
+
+}
+
+
+.admin_light_1{
+    border-radius: 15px 15px 0px 0px;
+    height: 8%;
+    background-color: #1C87BE;
+    padding-top: 5px;
+    padding-left: 135px;
+    color: #dddddd;
+    font-size: 18px;
+}
+
+.admin_second{
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 17px;
+}
+.admin_second input{
+    height: 27px;
+    margin-top: 25px;
+    border: 1px solid #AAADB3;
+}
+
+.admin_second span{
+    color: red;
+}
+.admin_second1{
+    margin-left: 50px;
+
+    width: 70px;
+    height: 30px;
+    border: 1px solid #AAADB3;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #1C87BE;
+}
+.admin_second2{
+    margin-left: 50px;
+
+    width: 70px;
+    height: 30px;
+    border: 1px solid #AAADB3;
+    border-radius: 6px;
+    font-size: 15px;
+
+}

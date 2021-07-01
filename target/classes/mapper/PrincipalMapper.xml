@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.PrincipalMapper" >
+    <resultMap id="BaseResultMap" type="model.Principal" >
+        <result column="principalId" property="principal_id" jdbcType="INTEGER" />
+        <result column="dormitory" property="dormitory" jdbcType="VARCHAR" />
+        <result column="principal" property="principal" jdbcType="VARCHAR" />
+        <result column="principalTel" property="principal_tel" jdbcType="VARCHAR" />
+        <result column="principalSex" property="principal_sex" jdbcType="VARCHAR" />
+        <result column="duty" property="duty" jdbcType="VARCHAR" />
+        <result column="time" property="time" jdbcType="DATE" />
+        <result column="leftTime" property="leftTime" jdbcType="DATE" />
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+    </resultMap>
+
+    <!--批量删除-->
+    <delete id="deleteMany_principal" parameterType="java.lang.String" >
+        delete  from  principal where principalId in
+        <foreach item="principalIds" collection="array" index="no" open="(" separator="," close=")">
+            #{principalIds}
+        </foreach>
+    </delete>
+
+
+
+</mapper>

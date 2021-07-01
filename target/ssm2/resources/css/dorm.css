@@ -1,0 +1,52 @@
+
+
+#center1{
+    height: 760px;
+    width: 100%;
+   // background-color: #566473;
+}
+
+#right{
+    height: 760px;
+    width: 83.5%;
+    float: right;
+    margin-top: -760px;
+    background-image: url("../images/sdsy.jpg");
+    position: relative;
+
+}
+
+.right1{
+    height: 740px;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 35px;
+    background: rgba(225,225,225,0.7);
+}
+ .right11{
+     display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 35px;
+    font-family: LiSu;
+    font-weight: 900;
+}
+
+.right12{
+    color: #000000;
+    display: block;
+    margin: 30px 150px 0px 150px;
+    font-size: 16px;
+    font-family: STKaiti;
+    font-weight: 900;
+    line-height: 25px;
+}
+
+#bottom{
+    height: 70px;
+    width: 100%;
+    margin-top: 40px;
+    background-color: white;
+    text-align: center;
+
+}

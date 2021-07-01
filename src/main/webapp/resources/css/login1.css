@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #566473;
+
+}
+
+body #title{
+    position: absolute;
+    top: 30px;
+    left: 250px;
+    font-size: 35px;
+    letter-spacing: 10px;
+    color: white;
+    font-family: KaiTi;
+}
+
+#wrap{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background-image: url("../images/sdsy.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.95;
+    position: relative;
+}
+
+#wrap .logGet {
+    height: 370px;
+    width: 320px;
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 22%;
+    right: 9%;
+    box-shadow: 0px 15px 25px rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing:border-box;
+    cursor: pointer;
+}
+.logC a button {
+    width: 100%;
+    height: 45px;
+    background-color: #ee7700;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+.logGet .logD.logDtip .p1 {
+    display: inline-block;
+    font-size: 28px;
+    margin-top: 30px;
+    text-align: center;
+    color: whitesmoke;
+    width: 86%;
+}
+#wrap .logGet .logD.logDtip {
+    width: 86%;
+    border-bottom: 1px solid #fafafa;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logGet .lgD i {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-size: 20px;
+}
+
+
+.logGet .lgD input {
+    width: 100%;
+    height: 35px;
+    text-indent: 2.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: white;
+    cursor: pointer;
+}
+.logGet .lgD  input::-webkit-input-placeholder{
+    color:white;
+}
+
+
+#wrap .logGet .lgD {
+    width: 80%;
+    position: relative;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: 24px;
+    color: white;
+}
+
+#wrap .logGet .lgE {
+    width: 80%;
+    position: relative;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: 24px;
+
+}
+
+
+
+
+#wrap .logGet .logC {
+    width: 86%;
+    height: 40px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: 24px;
+    background-color: #CC9933;
+}
+
+
+.logGet .lgE input {
+    width: 57%;
+    height: 35px;
+    text-indent: 0.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: white;
+    cursor: pointer;
+}
+
+.logGet .lgE i {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 15px;
+    color: white;
+}
+
+.logGet .lgE select {
+    width: 57%;
+    height: 30px;
+    margin-left: 110px;
+    text-indent: 0.5rem;
+    background: transparent;
+    border: none;
+    color: white;
+    background-color: #313131;
+}
+
+.logGet .lgE img {
+    position: absolute;
+    padding-top: 2px;
+    width: 43%;
+    height: 30px;
+    text-indent: 2.5rem;
+    background: transparent;
+}
+
+
+
+
+/*.title {*/
+/*    font-family: "宋体";*/
+/*    color: #FFFFFF;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);  !* 使用css3的transform来实现 *!*/
+/*    font-size: 36px;*/
+/*    height: 40px;*/
+/*    width: 30%;*/
+/*}*/
+
+
+.insert_user{
+    float: left;
+    margin-top:25px;
+    margin-left: 30px;
+}
+
+.insert_user a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.upatepw{
+    float: right;
+    margin-top:25px;
+    margin-right: 30px;
+
+}
+
+.upatepw a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height:660px;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.90;
+    filter: alpha(opacity=88);
+}
+
+
+.white_content {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 34%;
+    width: 400px;
+    height:300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #3b7780;
+    z-index:1002;
+
+
+}
+
+
+.white_content1 {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 34%;
+    width: 400px;
+    height:420px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    z-index:1002;
+
+
+}
+
+
+.light_1{
+    border-radius: 3px;
+    height: 8%;
+    background-color: #1C87BE;
+    padding-top: 5px;
+    padding-left: 155px;
+    color: #dddddd;
+    font-size: 18px;
+}
+
+.second{
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 17px;
+}
+.second input{
+    height: 27px;
+    width: 210px;
+    margin-top: 18px;
+    border: 1px solid #AAADB3;
+}
+
+.second span{
+    color: red;
+
+}
+.second1{
+    margin-left: 50px;
+
+    width: 70px;
+    height: 30px;
+    border: 1px solid #AAADB3;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #1C87BE;
+}
+.second2{
+    margin-left: 50px;
+
+    width: 70px;
+    height: 30px;
+    border: 1px solid #AAADB3;
+    border-radius: 6px;
+    font-size: 15px;
+
+}
+
+#second #sno{
+
+
+}
+
+
+
+
+
+/*#foot {*/
+/*    width: 100%;*/
+/*    height: 25%;*/
+/*    background-image: url("../images/foot.png");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 100% 100%;*/
+/*    position: relative;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.copyright {*/
+/*    font-family: "宋体";*/
+/*    color: #FFFFFF;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);  !* 使用css3的transform来实现 *!*/
+/*    height: 60px;*/
+/*    width: 40%;*/
+/*    text-align:center;*/
+/*}*/
+
+
+/*#foot .copyright .img {*/
+/*    width: 100%;*/
+/*    height: 24px;*/
+/*    position: relative;*/
+/*}*/
+/*.copyright .img .icon {*/
+/*    display: inline-block;*/
+/*    width: 24px;*/
+/*    height: 24px;*/
+/*    margin-left: 22px;*/
+/*    vertical-align: middle;*/
+
+/*    background-repeat: no-repeat;*/
+/*    vertical-align: middle;*/
+/*    margin-right: 5px;*/
+/*}*/
+
+/*.copyright .img .icon1 {*/
+/*    display: inline-block;*/
+/*    width: 24px;*/
+/*    height: 24px;*/
+/*    margin-left: 22px;*/
+/*    vertical-align: middle;*/
+
+/*    background-repeat: no-repeat;*/
+/*    vertical-align: middle;*/
+/*    margin-right: 5px;*/
+/*}*/
+/*.copyright .img .icon2 {*/
+/*    display: inline-block;*/
+/*    width: 24px;*/
+/*    height: 24px;*/
+/*    margin-left: 22px;*/
+/*    vertical-align: middle;*/
+/*    background-repeat: no-repeat;*/
+/*    vertical-align: middle;*/
+/*    margin-right: 5px;*/
+/*}*/
+/*#foot .copyright p {*/
+/*    height: 24px;*/
+/*    width: 100%;*/
+/*}*/

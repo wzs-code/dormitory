@@ -1,0 +1,79 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--&lt;!&ndash; 配置/** = anon 是为了防止js和css的路径被拦截 &ndash;&gt;
+    <bean id="filterChainDefinitions" class="java.lang.String">
+        <constructor-arg>
+            <value>
+                /index/goLogin = anon
+                /index/login = anon
+                /index/logout = logout
+                /user/** = authc
+                /** = anon
+            </value>
+        </constructor-arg>
+    </bean>-->
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <!-- 如果你没有登录,访问有登录验证的请求,都会跳转到/loginIndex页面 -->
+        <property name="loginUrl" value="login" />
+        <!-- 登录成功跳转的页面 -->
+        <property name="successUrl" value="admin" />
+        <!-- 没有权限跳转的页面 -->
+        <property name="unauthorizedUrl" value="login" />
+        <!-- anon:匿名拦截器，即不需要登录即可访问；一般用于静态资源过滤
+             authc:如果没有登录会跳到相应的登录页面登录
+                  表示访问该地址用户【必须身份验证通过】（Subject. isAuthenticated()==true）
+             user:用户拦截器，用户已经身份验证/记住我登录的都可 -->
+        <property name="filterChainDefinitions">
+            <value>
+                /login                       = anon
+                /checkCode                  = anon
+                <!--   /**                      = authc-->
+            </value>
+        </property>
+    </bean>
+
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--<property name="sessionManager" ref="defaultWebSessionManager"/>-->
+        <property name="realm" ref="securityAuthorizingRealm"/>
+    </bean>
+
+    <!-- 自定义的Realm -->
+    <bean id="securityAuthorizingRealm" class="com.relam.MyShiroRealm">
+
+    </bean>
+
+    <!-- 会话验证调度器 -->
+    <!--<bean id="sessionValidationScheduler" class="com.icinfo.framework.security.shiro.quartz.QuartzSessionValidationScheduler">-->
+    <!--<property name="sessionValidationInterval" value="1800000"/>-->
+    <!--<property name="sessionManager" ref="defaultWebSessionManager"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="defaultWebSessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">-->
+    <!--<property name="globalSessionTimeout" value="1800000"/>-->
+    <!--<property name="deleteInvalidSessions" value="true"/>-->
+    <!--<property name="sessionValidationSchedulerEnabled" value="true"/>-->
+    <!--<property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>-->
+    <!--<property name="sessionIdCookie.name" value="_hm_cid"/>-->
+    <!--<property name="sessionListeners">-->
+    <!--<list>-->
+    <!--<bean class="com.icinfo.framework.core.web.listener.CsrfTokenListener"/>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <bean class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+
+        <!-- session过期时间 -->
+        <property name="globalSessionTimeout" value="1800000"/>
+        <!-- cookie名称 -->
+        <property name="sessionIdCookie.name" value="managerid"/>
+        <!-- cookie生效路径 -->
+        <property name="sessionIdCookie.path" value="/"/>
+    </bean>
+
+</beans>

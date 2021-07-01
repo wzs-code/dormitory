@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.VisitorMapper" >
+    <resultMap id="BaseResultMap" type="model.Visitor" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="visitor_name" property="visitor_name" jdbcType="VARCHAR" />
+        <result column="visitor_dormitory" property="visitor_dormitory" jdbcType="VARCHAR" />
+        <result column="visit_studentname" property="visit_studentname" jdbcType="VARCHAR" />
+        <result column="visitor_relation" property="visitor_relation" jdbcType="VARCHAR" />
+        <result column="visitor_reason" property="visitor_reason" jdbcType="VARCHAR" />
+        <result column="visitor_telephone" property="visitor_telephone" jdbcType="VARCHAR" />
+        <result column="visitor_cometime" property="visitor_cometime" jdbcType="DATE" />
+        <result column="visitor_leavetime" property="visitor_leavetime" jdbcType="DATE" />
+    </resultMap>
+
+
+    <!--批量删除-->
+    <delete id="deleteMany_visitor" parameterType="java.lang.String" >
+        delete  from  visitor where id in
+        <foreach item="visitorids" collection="array" index="no" open="(" separator="," close=")">
+            #{visitorids}
+        </foreach>
+    </delete>
+
+    <insert id="insert_visitor" parameterType="model.Visitor">
+    insert into visitor (visitor_name,visitor_dormitory,visit_studentname,visitor_relation,visitor_reason,visitor_telephone,visitor_cometime,visitor_leavetime
+     )
+    values (#{visitor_name},#{visitor_dormitory},#{visit_studentname},#{visitor_relation},#{visitor_reason},#{visitor_telephone},#{visitor_cometime},#{visitor_leavetime}
+     )
+  </insert>
+
+    <delete id="delete_visitor" parameterType="model.Visitor">
+    delete from visitor where id=#{id}
+  </delete>
+
+    <update id="update_visitor" parameterType="model.Visitor">
+    update visitor set visitor_leavetime=#{visitor_leavetime} where id=#{id}
+  </update>
+
+    <select id="select_visitorname" resultMap="BaseResultMap" >
+    select id,visitor_name,visitor_dormitory,visit_studentname,visitor_relation,visitor_reason,visitor_telephone,visitor_cometime,visitor_leavetime from visitor where visitor_name=#{visitor_name}
+  </select>
+
+    <select id="select_visitorid" resultMap="BaseResultMap" >
+    select id,visitor_name,visitor_dormitory,visit_studentname,visitor_relation,visitor_reason,visitor_telephone,visitor_cometime,visitor_leavetime from visitor where id=#{id}
+  </select>
+</mapper>

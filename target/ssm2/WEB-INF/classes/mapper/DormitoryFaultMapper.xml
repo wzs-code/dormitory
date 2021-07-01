@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.DormitoryFaultMapper" >
+    <resultMap id="BaseResultMap" type="model.DormitoryFault" >
+        <result column="faultId" property="faultId" jdbcType="INTEGER" />
+        <result column="dormitory" property="dormitory" jdbcType="VARCHAR" />
+        <result column="dorm" property="dorm" jdbcType="VARCHAR" />
+        <result column="attendant" property="attendant" jdbcType="VARCHAR" />
+        <result column="attendantTel" property="attendantTel" jdbcType="VARCHAR" />
+        <result column="fixTime" property="fixTime" jdbcType="DATE" />
+        <result column="fault" property="fault" jdbcType="VARCHAR" />
+        <result column="faultStatus" property="faultStatus" jdbcType="BOOLEAN" />
+</resultMap>
+
+
+    <!--批量删除-->
+    <delete id="deleteMany_Fault" parameterType="java.lang.String" >
+        delete  from  dormitoryfault where faultId in
+        <foreach item="faultids" collection="array" index="no" open="(" separator="," close=")">
+            #{faultids}
+        </foreach>
+    </delete>
+
+    <delete id="deletefault" parameterType="model.DormitoryFault">
+    delete from dormitoryfault where faultId=#{faultId}
+  </delete>
+
+
+
+
+</mapper>

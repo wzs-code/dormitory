@@ -1,0 +1,53 @@
+
+#center1{
+    height: 760px;
+    width: 100%;
+// background-color: #566473;
+}
+
+
+#right{
+    margin-top: -760px;
+
+    height: 760px;
+    width: 83.5%;
+    float: right;
+    background-color: #fff8ff;
+}
+#xueshe{
+
+    font-size:20px;
+    margin-top: 50px;
+    font-family: KaiTi;
+}
+
+center{
+    margin-top: 50px;
+}
+
+.right1{
+    text-align: center;
+    font-size: 12px;
+    font-family: LiSu;
+}
+.right_top{
+    float: left;
+}
+
+
+#selectstudent p{
+    margin-left: 130px;
+    margin-top: 22px;
+    font-size: 17px;
+}
+
+#selectstudent p span{
+    font-weight: 500;
+    color: #474747;
+  }
+
+
+#studentright {
+    position: absolute;
+    left: 780px;
+}
